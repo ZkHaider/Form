@@ -8,13 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C46C5CCA2297A613000FEED7 /* Form.h in Headers */ = {isa = PBXBuildFile; fileRef = C46C5CC82297A613000FEED7 /* Form.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C46C5CD12297A72E000FEED7 /* Form.Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CD02297A72E000FEED7 /* Form.Enums.swift */; };
-		C46C5CD32297A8F2000FEED7 /* Form.Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CD22297A8F2000FEED7 /* Form.Config.swift */; };
-		C46C5CD82297AB4E000FEED7 /* Form.Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CD72297AB4E000FEED7 /* Form.Unit.swift */; };
-		C46C5CDA2297ABA8000FEED7 /* Form.Justify.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CD92297ABA8000FEED7 /* Form.Justify.swift */; };
-		C46C5CDE2297AE5B000FEED7 /* Form.Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CDD2297AE5B000FEED7 /* Form.Position.swift */; };
 		C46C5CE02297B1AF000FEED7 /* Form.Float+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CDF2297B1AF000FEED7 /* Form.Float+Extensions.swift */; };
-		C46C5CE22297B2C4000FEED7 /* Form.Margin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CE12297B2C4000FEED7 /* Form.Margin.swift */; };
 		C46C5CE6229CB736000FEED7 /* Form.Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CE5229CB736000FEED7 /* Form.Number.swift */; };
 		C46C5CE8229CBC29000FEED7 /* Form.OrElse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CE7229CBC29000FEED7 /* Form.OrElse.swift */; };
 		C46C5CEA229CBC44000FEED7 /* Form.Numbered.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CE9229CBC44000FEED7 /* Form.Numbered.swift */; };
@@ -61,13 +55,7 @@
 		C46C5CC52297A613000FEED7 /* Form.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Form.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46C5CC82297A613000FEED7 /* Form.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Form.h; sourceTree = "<group>"; };
 		C46C5CC92297A613000FEED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C46C5CD02297A72E000FEED7 /* Form.Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Enums.swift; sourceTree = "<group>"; };
-		C46C5CD22297A8F2000FEED7 /* Form.Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Config.swift; sourceTree = "<group>"; };
-		C46C5CD72297AB4E000FEED7 /* Form.Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Unit.swift; sourceTree = "<group>"; };
-		C46C5CD92297ABA8000FEED7 /* Form.Justify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Justify.swift; sourceTree = "<group>"; };
-		C46C5CDD2297AE5B000FEED7 /* Form.Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Position.swift; sourceTree = "<group>"; };
 		C46C5CDF2297B1AF000FEED7 /* Form.Float+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form.Float+Extensions.swift"; sourceTree = "<group>"; };
-		C46C5CE12297B2C4000FEED7 /* Form.Margin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Margin.swift; sourceTree = "<group>"; };
 		C46C5CE5229CB736000FEED7 /* Form.Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Number.swift; sourceTree = "<group>"; };
 		C46C5CE7229CBC29000FEED7 /* Form.OrElse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.OrElse.swift; sourceTree = "<group>"; };
 		C46C5CE9229CBC44000FEED7 /* Form.Numbered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Numbered.swift; sourceTree = "<group>"; };
@@ -140,6 +128,8 @@
 		C46C5CC72297A613000FEED7 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				C46C5CC92297A613000FEED7 /* Info.plist */,
+				C46C5CC82297A613000FEED7 /* Form.h */,
 				C46C5D1E229CCF5D000FEED7 /* Algorithm */,
 				C46C5D1F229CCF73000FEED7 /* Node */,
 				C46C5D16229CCE1A000FEED7 /* Result */,
@@ -149,15 +139,7 @@
 				C46C5CF1229CC19E000FEED7 /* Number */,
 				C46C5D20229CD120000FEED7 /* Algebriac */,
 				C46C5D27229CD45F000FEED7 /* Weak */,
-				C46C5CC82297A613000FEED7 /* Form.h */,
-				C46C5CC92297A613000FEED7 /* Info.plist */,
-				C46C5CD22297A8F2000FEED7 /* Form.Config.swift */,
-				C46C5CD02297A72E000FEED7 /* Form.Enums.swift */,
-				C46C5CDD2297AE5B000FEED7 /* Form.Position.swift */,
-				C46C5CE12297B2C4000FEED7 /* Form.Margin.swift */,
-				C46C5CD72297AB4E000FEED7 /* Form.Unit.swift */,
-				C46C5CD92297ABA8000FEED7 /* Form.Justify.swift */,
-				C46C5CDF2297B1AF000FEED7 /* Form.Float+Extensions.swift */,
+				C46C5D3E229D27F3000FEED7 /* Extensions */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -265,6 +247,14 @@
 			path = Weak;
 			sourceTree = "<group>";
 		};
+		C46C5D3E229D27F3000FEED7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C46C5CDF2297B1AF000FEED7 /* Form.Float+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -347,15 +337,12 @@
 				C46C5D22229CD12E000FEED7 /* Form.Function.swift in Sources */,
 				C46C5D01229CC5DF000FEED7 /* Form.Direction.swift in Sources */,
 				C46C5D1B229CCEE2000FEED7 /* Form.Layout.swift in Sources */,
-				C46C5CDA2297ABA8000FEED7 /* Form.Justify.swift in Sources */,
 				C46C5D33229CED8B000FEED7 /* Form.Monoid.swift in Sources */,
 				C46C5D11229CC919000FEED7 /* Form.Dimension+Rect.swift in Sources */,
 				C46C5D3D229D0965000FEED7 /* Form.Compute.swift in Sources */,
-				C46C5CD82297AB4E000FEED7 /* Form.Unit.swift in Sources */,
 				C46C5CE02297B1AF000FEED7 /* Form.Float+Extensions.swift in Sources */,
 				C46C5D15229CCA8D000FEED7 /* Form.Style.swift in Sources */,
 				C46C5CFB229CC548000FEED7 /* Form.AlignItems.swift in Sources */,
-				C46C5CD32297A8F2000FEED7 /* Form.Config.swift in Sources */,
 				C46C5D24229CD18A000FEED7 /* Form.MeasureFunc.swift in Sources */,
 				C46C5CF0229CBF91000FEED7 /* Form.Operation.swift in Sources */,
 				C46C5D2B229CD655000FEED7 /* Form.Node.swift in Sources */,
@@ -365,11 +352,9 @@
 				C46C5D29229CD469000FEED7 /* Form.Weak.swift in Sources */,
 				C46C5D37229D06F6000FEED7 /* Form.Compute.Result.swift in Sources */,
 				C46C5CEE229CBC6F000FEED7 /* Form.MinMax.swift in Sources */,
-				C46C5CE22297B2C4000FEED7 /* Form.Margin.swift in Sources */,
 				C46C5D18229CCE29000FEED7 /* Form.Result.swift in Sources */,
 				C46C5D03229CC62A000FEED7 /* Form.Display.swift in Sources */,
 				C46C5D31229CED7B000FEED7 /* Form.Semigroup.swift in Sources */,
-				C46C5CD12297A72E000FEED7 /* Form.Enums.swift in Sources */,
 				C46C5CFF229CC5B7000FEED7 /* Form.AlignContent.swift in Sources */,
 				C46C5D07229CC6D5000FEED7 /* Form.JustifyContent.swift in Sources */,
 				C46C5CF6229CC2BB000FEED7 /* Form.Size.swift in Sources */,
@@ -382,7 +367,6 @@
 				C46C5CE8229CBC29000FEED7 /* Form.OrElse.swift in Sources */,
 				C46C5D39229D084A000FEED7 /* Form.Flex.Item.swift in Sources */,
 				C46C5D0B229CC728000FEED7 /* Form.PositionType.swift in Sources */,
-				C46C5CDE2297AE5B000FEED7 /* Form.Position.swift in Sources */,
 				C46C5D09229CC708000FEED7 /* Form.Overflow.swift in Sources */,
 				C46C5D35229CEDCD000FEED7 /* Form.Magma.Operator.swift in Sources */,
 				C46C5D1D229CCF32000FEED7 /* Form.Cache.swift in Sources */,

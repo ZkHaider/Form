@@ -18,11 +18,11 @@ public struct Rect<T> {
 extension Rect where T == Float32 {
     
     public func horizontal() -> T {
-        return Operation.add.ops(self.start, self.end)
+        return Operation.add.operate(self.start, self.end)
     }
     
     public func vertical() -> T {
-        return Operation.add.ops(self.top, self.bottom)
+        return Operation.add.operate(self.top, self.bottom)
     }
     
 }

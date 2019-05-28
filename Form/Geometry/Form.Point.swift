@@ -22,6 +22,21 @@ extension Point {
     }
 }
 
+extension Point: Monoid, Semigroup, Magma where T: Monoid {
+    
+    public static var identity: Point<T> {
+        return Point(x: T.identity, y: T.identity)
+    }
+    
+    public func ops(other: Point<T>) -> Point<T> {
+        return Point(
+            x: [self.x, other.x].joined(),
+            y: [self.y, other.y].joined()
+        )
+    }
+    
+}
+
 extension Point: Equatable where T: Equatable {
     public static func ==(lhs: Point,
                           rhs: Point) -> Bool {

@@ -27,7 +27,7 @@ extension Dimension {
     public func resolve(withParentWidth width: Number) -> Number {
         switch self {
         case .points(let points): return .defined(points)
-        case .percent(let percent): return Operation.multiply.ops(width, percent)
+        case .percent(let percent): return Operation.multiply.operate(width, percent)
         default: return .undefined
         }
     }

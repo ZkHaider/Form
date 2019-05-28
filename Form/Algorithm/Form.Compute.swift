@@ -31,32 +31,11 @@ public func compute(on root: InternalNode,
         switch firstPass {
         case .success(let computeResult):
             
-            let resolvedMinWidth = root.style.minSize.width.resolve(withParentWidth: size.width)
-            let resolvedMinHeight = root.style.minSize.height.resolve(withParentWidth: size.height)
-            let resolvedMaxWidth = root.style.maxSize.width.resolve(withParentWidth: size.width)
-            let resolvedMaxHeight = root.style.maxSize.height.resolve(withParentWidth: size.height)
-            
-            let maybeMaxWidth = MinMax.minMax.maybeMax(
-                computeResult.size.width,
-                resolvedMinWidth
-            )
-            let maybeMinWidth = MinMax.minMax.maybeMin(
-                maybeMaxWidth,
-                resolvedMaxWidth
-            )
-            
-            let width = Numbered.default.convert(maybeMinWidth)
-            
-            let maybeMaxHeight = MinMax.minMax.maybeMax(
-                computeResult.size.height,
-                resolvedMinHeight
-            )
-            let maybeMinHeight = MinMax.minMax.maybeMin(
-                maybeMaxHeight,
-                resolvedMaxHeight
-            )
-            
-            let height = Numbered.default.convert(maybeMinHeight)
+            // Composed functions:
+            // ResolvedWidth -> MaxPass -> MinPass
+            // ResolvedHeight -> MaxPass -> MinPass
+            let width = Function.computeWidthPass.f((root, size, computeResult.size))
+            let height = Function.computeHeightPass.f((root, size, computeResult.size))
             
             result = computeInternal(
                 on: root,
@@ -67,6 +46,7 @@ public func compute(on root: InternalNode,
                 parentSize: size,
                 performLayout: true
             )
+            
         case .failure(let error):
             result = .failure(error)
         }
@@ -103,11 +83,39 @@ public func compute(on root: InternalNode,
     }
 }
 
+private func roundLayout(on layout: Layout,
+                         absX: Float32,
+                         absY: Float32) -> Layout {
+    let _absX = absX + layout.location.x
+    let _absY = absY + layout.location.y
+    
+    return Layout(
+        order: layout.order,
+        size: Size(
+            width: (_absX + layout.size.width).rounded() - _absX.rounded(),
+            height: (_absY + layout.size.height).rounded() - _absY.rounded()
+        ),
+        location: Point(
+            x: layout.location.x.rounded(),
+            y: layout.location.y.rounded()
+        ),
+        children: layout.children.compactMap({ roundLayout(on: $0,
+                                                           absX: _absX,
+                                                           absY: _absY) })
+    )
+}
+
 internal func computeInternal(on node: InternalNode,
                               nodeSize: Size<Number>,
                               parentSize: Size<Number>,
                               performLayout: Bool) -> Result<ComputeResult> {
     node.isDirty = false
+    
+    // First we check if we have a result for the given input
+    if let cache = node.layoutCache,
+        cache.performLayout || !performLayout {
+        
+    }
     
     return .failure(NSError(domain: "", code: 0, userInfo: [:]))
 }

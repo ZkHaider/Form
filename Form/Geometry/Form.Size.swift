@@ -23,6 +23,21 @@ extension Size {
     }
 }
 
+extension Size: Monoid, Semigroup, Magma where T: Monoid {
+    
+    public static var identity: Size<T> {
+        return Size<T>(width: T.identity, height: T.identity)
+    }
+    
+    public func ops(other: Size<T>) -> Size<T> {
+        return Size<T>(
+            width: [self.width, other.width].joined(),
+            height: [self.height, other.height].joined()
+        )
+    }
+    
+}
+
 extension Size where T == Void {
     public func undefined() -> Size<Number> {
         return Size<Number>(width: .undefined, height: .undefined)

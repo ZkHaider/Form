@@ -10,6 +10,7 @@ import Foundation
 
 public protocol Monoid: Semigroup {
     static var identity: Self { get }
+    func ops(other: Self) -> Self
 }
 
 func concat<M: Monoid>(_ values: [M]) -> M {

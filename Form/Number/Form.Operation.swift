@@ -12,13 +12,13 @@ public struct Operation<L, R, O> {
     public typealias Left = L
     public typealias Right = R
     public typealias Output = O
-    public let ops: (Left, Right) -> Output
+    public let operate: (Left, Right) -> Output
 }
 
 extension Operation where Left == Float32, Right == Float32, Output == Float32 {
     public static var add: Operation<Left, Right, Output> {
         return Operation<L, R, O>(
-            ops: { (lhs, rhs) -> Float32 in
+            operate: { (lhs, rhs) -> Float32 in
                 return lhs + rhs
             }
         )
@@ -28,7 +28,7 @@ extension Operation where Left == Float32, Right == Float32, Output == Float32 {
 extension Operation where Left == Number, Right == Float32, Output == Number {
     public static var add: Operation<Left, Right, Output> {
         return Operation<L, R, O>(
-            ops: { (number, float) -> Number in
+            operate: { (number, float) -> Number in
                 switch number {
                 case .defined(let value): return .defined(value + float)
                 case .undefined: return .undefined
@@ -39,7 +39,7 @@ extension Operation where Left == Number, Right == Float32, Output == Number {
     
     public static var subtract: Operation<Left, Right, Output> {
         return Operation<L, R, O>(
-            ops: { (number, float) -> Number in
+            operate: { (number, float) -> Number in
                 switch number {
                 case .defined(let value): return .defined(value - float)
                 case .undefined: return .undefined
@@ -50,7 +50,7 @@ extension Operation where Left == Number, Right == Float32, Output == Number {
     
     public static var multiply: Operation<Left, Right, Output> {
         return Operation<L, R, O>(
-            ops: { (number, float) -> Number in
+            operate: { (number, float) -> Number in
                 switch number {
                 case .defined(let value): return .defined(value * float)
                 case .undefined: return .undefined
@@ -61,7 +61,7 @@ extension Operation where Left == Number, Right == Float32, Output == Number {
     
     public static var divide: Operation<Left, Right, Output> {
         return Operation<L, R, O>(
-            ops: { (number, float) -> Number in
+            operate: { (number, float) -> Number in
                 switch number {
                 case .defined(let value): return .defined(value / float)
                 case .undefined: return .undefined
@@ -73,7 +73,7 @@ extension Operation where Left == Number, Right == Float32, Output == Number {
 
 extension Operation where Left == Number, Right == Number, Output == Number {
     public static var add: Operation<Left, Right, Output> {
-        return Operation<L, R, O>(ops: { (lhs, rhs) -> Number in
+        return Operation<L, R, O>(operate: { (lhs, rhs) -> Number in
             switch lhs {
             case .defined(let lhsValue):
                 switch rhs {
@@ -86,7 +86,7 @@ extension Operation where Left == Number, Right == Number, Output == Number {
     }
     
     public static var subtract: Operation<Left, Right, Output> {
-        return Operation<L, R, O>(ops: { (lhs, rhs) -> Number in
+        return Operation<L, R, O>(operate: { (lhs, rhs) -> Number in
             switch lhs {
             case .defined(let lhsValue):
                 switch rhs {
@@ -99,7 +99,7 @@ extension Operation where Left == Number, Right == Number, Output == Number {
     }
     
     public static var multiply: Operation<Left, Right, Output> {
-        return Operation<L, R, O>(ops: { (lhs, rhs) -> Number in
+        return Operation<L, R, O>(operate: { (lhs, rhs) -> Number in
             switch lhs {
             case .defined(let lhsValue):
                 switch rhs {
@@ -112,7 +112,7 @@ extension Operation where Left == Number, Right == Number, Output == Number {
     }
     
     public static var divide: Operation<Left, Right, Output> {
-        return Operation<L, R, O>(ops: { (lhs, rhs) -> Number in
+        return Operation<L, R, O>(operate: { (lhs, rhs) -> Number in
             switch lhs {
             case .defined(let lhsValue):
                 switch rhs {
@@ -123,4 +123,45 @@ extension Operation where Left == Number, Right == Number, Output == Number {
             }
         })
     }
+}
+
+extension Operation where Left == InternalNode, Right == Size<Number>, Output == Number {
+    static var resolvedMinWidth: Operation {
+        return Operation { $0.style.minSize.width.resolve(withParentWidth: $1.width) }
+    }
+    static var resolvedMinHeight: Operation {
+        return Operation { $0.style.minSize.height.resolve(withParentWidth: $1.height) }
+    }
+    static var resolvedMaxWidth: Operation {
+        return Operation { $0.style.maxSize.width.resolve(withParentWidth: $1.width) }
+    }
+    static var resolvedMaxHeight: Operation {
+        return Operation { $0.style.maxSize.height.resolve(withParentWidth: $1.height) }
+    }
+}
+
+extension Operation where Left == Float32, Right == Number, Output == Float32 {
+    static var maxPass: Operation {
+        return Operation { MinMax.minMax.maybeMax($0, $1) }
+    }
+    static var minPass: Operation {
+        return Operation { MinMax.minMax.maybeMin($0, $1) }
+    }
+}
+
+extension Operation: Monoid, Semigroup, Magma
+                where Left: Monoid,
+                      Right: Monoid,
+                      Output: Monoid {
+    
+    public static var identity: Operation<L, R, O> {
+        return Operation { _,_ in O.identity }
+    }
+    
+    public func ops(other: Operation<L, R, O>) -> Operation<L, R, O> {
+        return Operation<L, R, O> { left, right -> Output in
+            return [self.operate(left, right), other.operate(left, right)].joined()
+        }
+    }
+    
 }
