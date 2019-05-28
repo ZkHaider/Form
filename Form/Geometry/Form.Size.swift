@@ -12,6 +12,11 @@ import simd
 public struct Size<T> {
     public let width: T
     public let height: T
+    public init(width: T,
+                height: T) {
+        self.width = width
+        self.height = height
+    }
 }
 
 extension Size {

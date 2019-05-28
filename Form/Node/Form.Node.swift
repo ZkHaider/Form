@@ -62,8 +62,8 @@ public struct Node {
         self.boxedNode = Box(value: internalNode)
     }
     
-    init(style: Style<Dimension>,
-         measureFunction: MeasureFunc) {
+    internal init(style: Style<Dimension>,
+                measureFunction: MeasureFunc) {
         let internalNode = InternalNode(
             style: style,
             parents: [],
@@ -75,13 +75,13 @@ public struct Node {
         self.boxedNode = Box(value: internalNode)
     }
     
-    init(style: Style<Dimension>,
-         children: [Weak<InternalNode>]) {
+    internal init(style: Style<Dimension>,
+                children: [Node]) {
         
         let internalNode = InternalNode(
             style: style,
             parents: [],
-            children: children,
+            children: children.compactMap({ Weak<InternalNode>(value: $0.backingNode) }),
             measureFunction: nil,
             layoutCache: nil,
             isDirty: true
@@ -140,9 +140,8 @@ public struct Node {
         return Node(oldChild.value!)
     }
     
-    // FIXME!:
-    public func computeLayout(for size: Size<Number>) -> Result<Void> {
-        return Result.success(())
+    public func computeLayout(for size: Size<Number>) -> Result<Layout> {
+        return compute(on: self.backingNode, size: size)
     }
     
     // MARK: - Private Methods
@@ -199,6 +198,25 @@ extension Node: Equatable {
             return false 
         }
         return true
+    }
+    
+}
+
+extension Node: NodeLayout {
+    
+    public static func node(style: Style<Dimension>,
+                            measureFunction: MeasureFunc) -> Node {
+        return Node(style: style, measureFunction: measureFunction)
+    }
+    
+    public static func node(style: Style<Dimension>,
+                            children: Node...) -> Node {
+        return Node(style: style, children: children)
+    }
+    
+    public static func node(style: Style<Dimension>,
+                            children: [Node]) -> Node {
+        return node(style: style, children: children)
     }
     
 }
