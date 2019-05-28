@@ -8,12 +8,106 @@
 
 /* Begin PBXBuildFile section */
 		C46C5CCA2297A613000FEED7 /* Form.h in Headers */ = {isa = PBXBuildFile; fileRef = C46C5CC82297A613000FEED7 /* Form.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C46C5CD12297A72E000FEED7 /* Form.Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CD02297A72E000FEED7 /* Form.Enums.swift */; };
+		C46C5CD32297A8F2000FEED7 /* Form.Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CD22297A8F2000FEED7 /* Form.Config.swift */; };
+		C46C5CD82297AB4E000FEED7 /* Form.Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CD72297AB4E000FEED7 /* Form.Unit.swift */; };
+		C46C5CDA2297ABA8000FEED7 /* Form.Justify.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CD92297ABA8000FEED7 /* Form.Justify.swift */; };
+		C46C5CDE2297AE5B000FEED7 /* Form.Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CDD2297AE5B000FEED7 /* Form.Position.swift */; };
+		C46C5CE02297B1AF000FEED7 /* Form.Float+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CDF2297B1AF000FEED7 /* Form.Float+Extensions.swift */; };
+		C46C5CE22297B2C4000FEED7 /* Form.Margin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CE12297B2C4000FEED7 /* Form.Margin.swift */; };
+		C46C5CE6229CB736000FEED7 /* Form.Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CE5229CB736000FEED7 /* Form.Number.swift */; };
+		C46C5CE8229CBC29000FEED7 /* Form.OrElse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CE7229CBC29000FEED7 /* Form.OrElse.swift */; };
+		C46C5CEA229CBC44000FEED7 /* Form.Numbered.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CE9229CBC44000FEED7 /* Form.Numbered.swift */; };
+		C46C5CEC229CBC54000FEED7 /* Form.WithDefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CEB229CBC54000FEED7 /* Form.WithDefaultValue.swift */; };
+		C46C5CEE229CBC6F000FEED7 /* Form.MinMax.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CED229CBC6F000FEED7 /* Form.MinMax.swift */; };
+		C46C5CF0229CBF91000FEED7 /* Form.Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CEF229CBF91000FEED7 /* Form.Operation.swift */; };
+		C46C5CF4229CC1C8000FEED7 /* Form.Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CF3229CC1C8000FEED7 /* Form.Rect.swift */; };
+		C46C5CF6229CC2BB000FEED7 /* Form.Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CF5229CC2BB000FEED7 /* Form.Size.swift */; };
+		C46C5CF8229CC3C4000FEED7 /* Form.Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CF7229CC3C4000FEED7 /* Form.Point.swift */; };
+		C46C5CFB229CC548000FEED7 /* Form.AlignItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CFA229CC548000FEED7 /* Form.AlignItems.swift */; };
+		C46C5CFD229CC589000FEED7 /* Form.AlignSelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CFC229CC589000FEED7 /* Form.AlignSelf.swift */; };
+		C46C5CFF229CC5B7000FEED7 /* Form.AlignContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5CFE229CC5B7000FEED7 /* Form.AlignContent.swift */; };
+		C46C5D01229CC5DF000FEED7 /* Form.Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D00229CC5DF000FEED7 /* Form.Direction.swift */; };
+		C46C5D03229CC62A000FEED7 /* Form.Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D02229CC62A000FEED7 /* Form.Display.swift */; };
+		C46C5D05229CC666000FEED7 /* Form.FlexDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D04229CC666000FEED7 /* Form.FlexDirection.swift */; };
+		C46C5D07229CC6D5000FEED7 /* Form.JustifyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D06229CC6D5000FEED7 /* Form.JustifyContent.swift */; };
+		C46C5D09229CC708000FEED7 /* Form.Overflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D08229CC708000FEED7 /* Form.Overflow.swift */; };
+		C46C5D0B229CC728000FEED7 /* Form.PositionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D0A229CC728000FEED7 /* Form.PositionType.swift */; };
+		C46C5D0D229CC74F000FEED7 /* Form.FlexWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D0C229CC74F000FEED7 /* Form.FlexWrap.swift */; };
+		C46C5D0F229CC794000FEED7 /* Form.Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D0E229CC794000FEED7 /* Form.Dimension.swift */; };
+		C46C5D11229CC919000FEED7 /* Form.Dimension+Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D10229CC919000FEED7 /* Form.Dimension+Rect.swift */; };
+		C46C5D13229CCA26000FEED7 /* Form.Dimension+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D12229CCA26000FEED7 /* Form.Dimension+Size.swift */; };
+		C46C5D15229CCA8D000FEED7 /* Form.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D14229CCA8D000FEED7 /* Form.Style.swift */; };
+		C46C5D18229CCE29000FEED7 /* Form.Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D17229CCE29000FEED7 /* Form.Result.swift */; };
+		C46C5D1B229CCEE2000FEED7 /* Form.Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D1A229CCEE2000FEED7 /* Form.Layout.swift */; };
+		C46C5D1D229CCF32000FEED7 /* Form.Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D1C229CCF32000FEED7 /* Form.Cache.swift */; };
+		C46C5D22229CD12E000FEED7 /* Form.Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D21229CD12E000FEED7 /* Form.Function.swift */; };
+		C46C5D24229CD18A000FEED7 /* Form.MeasureFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D23229CD18A000FEED7 /* Form.MeasureFunc.swift */; };
+		C46C5D26229CD2BD000FEED7 /* Form.Internal.Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D25229CD2BD000FEED7 /* Form.Internal.Node.swift */; };
+		C46C5D29229CD469000FEED7 /* Form.Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D28229CD469000FEED7 /* Form.Weak.swift */; };
+		C46C5D2B229CD655000FEED7 /* Form.Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D2A229CD655000FEED7 /* Form.Node.swift */; };
+		C46C5D2D229CE376000FEED7 /* Form.Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D2C229CE376000FEED7 /* Form.Box.swift */; };
+		C46C5D2F229CED5C000FEED7 /* Form.Magma.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D2E229CED5C000FEED7 /* Form.Magma.swift */; };
+		C46C5D31229CED7B000FEED7 /* Form.Semigroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D30229CED7B000FEED7 /* Form.Semigroup.swift */; };
+		C46C5D33229CED8B000FEED7 /* Form.Monoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D32229CED8B000FEED7 /* Form.Monoid.swift */; };
+		C46C5D35229CEDCD000FEED7 /* Form.Magma.Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D34229CEDCD000FEED7 /* Form.Magma.Operator.swift */; };
+		C46C5D37229D06F6000FEED7 /* Form.Compute.Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D36229D06F6000FEED7 /* Form.Compute.Result.swift */; };
+		C46C5D39229D084A000FEED7 /* Form.Flex.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D38229D084A000FEED7 /* Form.Flex.Item.swift */; };
+		C46C5D3B229D0935000FEED7 /* Form.Flex.Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D3A229D0935000FEED7 /* Form.Flex.Line.swift */; };
+		C46C5D3D229D0965000FEED7 /* Form.Compute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D3C229D0965000FEED7 /* Form.Compute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C46C5CC52297A613000FEED7 /* Form.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Form.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46C5CC82297A613000FEED7 /* Form.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Form.h; sourceTree = "<group>"; };
 		C46C5CC92297A613000FEED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C46C5CD02297A72E000FEED7 /* Form.Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Enums.swift; sourceTree = "<group>"; };
+		C46C5CD22297A8F2000FEED7 /* Form.Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Config.swift; sourceTree = "<group>"; };
+		C46C5CD72297AB4E000FEED7 /* Form.Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Unit.swift; sourceTree = "<group>"; };
+		C46C5CD92297ABA8000FEED7 /* Form.Justify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Justify.swift; sourceTree = "<group>"; };
+		C46C5CDD2297AE5B000FEED7 /* Form.Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Position.swift; sourceTree = "<group>"; };
+		C46C5CDF2297B1AF000FEED7 /* Form.Float+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form.Float+Extensions.swift"; sourceTree = "<group>"; };
+		C46C5CE12297B2C4000FEED7 /* Form.Margin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Margin.swift; sourceTree = "<group>"; };
+		C46C5CE5229CB736000FEED7 /* Form.Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Number.swift; sourceTree = "<group>"; };
+		C46C5CE7229CBC29000FEED7 /* Form.OrElse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.OrElse.swift; sourceTree = "<group>"; };
+		C46C5CE9229CBC44000FEED7 /* Form.Numbered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Numbered.swift; sourceTree = "<group>"; };
+		C46C5CEB229CBC54000FEED7 /* Form.WithDefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.WithDefaultValue.swift; sourceTree = "<group>"; };
+		C46C5CED229CBC6F000FEED7 /* Form.MinMax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.MinMax.swift; sourceTree = "<group>"; };
+		C46C5CEF229CBF91000FEED7 /* Form.Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Operation.swift; sourceTree = "<group>"; };
+		C46C5CF3229CC1C8000FEED7 /* Form.Rect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Rect.swift; sourceTree = "<group>"; };
+		C46C5CF5229CC2BB000FEED7 /* Form.Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Size.swift; sourceTree = "<group>"; };
+		C46C5CF7229CC3C4000FEED7 /* Form.Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Point.swift; sourceTree = "<group>"; };
+		C46C5CFA229CC548000FEED7 /* Form.AlignItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.AlignItems.swift; sourceTree = "<group>"; };
+		C46C5CFC229CC589000FEED7 /* Form.AlignSelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.AlignSelf.swift; sourceTree = "<group>"; };
+		C46C5CFE229CC5B7000FEED7 /* Form.AlignContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.AlignContent.swift; sourceTree = "<group>"; };
+		C46C5D00229CC5DF000FEED7 /* Form.Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Direction.swift; sourceTree = "<group>"; };
+		C46C5D02229CC62A000FEED7 /* Form.Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Display.swift; sourceTree = "<group>"; };
+		C46C5D04229CC666000FEED7 /* Form.FlexDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.FlexDirection.swift; sourceTree = "<group>"; };
+		C46C5D06229CC6D5000FEED7 /* Form.JustifyContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.JustifyContent.swift; sourceTree = "<group>"; };
+		C46C5D08229CC708000FEED7 /* Form.Overflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Overflow.swift; sourceTree = "<group>"; };
+		C46C5D0A229CC728000FEED7 /* Form.PositionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.PositionType.swift; sourceTree = "<group>"; };
+		C46C5D0C229CC74F000FEED7 /* Form.FlexWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.FlexWrap.swift; sourceTree = "<group>"; };
+		C46C5D0E229CC794000FEED7 /* Form.Dimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Dimension.swift; sourceTree = "<group>"; };
+		C46C5D10229CC919000FEED7 /* Form.Dimension+Rect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form.Dimension+Rect.swift"; sourceTree = "<group>"; };
+		C46C5D12229CCA26000FEED7 /* Form.Dimension+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form.Dimension+Size.swift"; sourceTree = "<group>"; };
+		C46C5D14229CCA8D000FEED7 /* Form.Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Style.swift; sourceTree = "<group>"; };
+		C46C5D17229CCE29000FEED7 /* Form.Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Result.swift; sourceTree = "<group>"; };
+		C46C5D1A229CCEE2000FEED7 /* Form.Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Layout.swift; sourceTree = "<group>"; };
+		C46C5D1C229CCF32000FEED7 /* Form.Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Cache.swift; sourceTree = "<group>"; };
+		C46C5D21229CD12E000FEED7 /* Form.Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Function.swift; sourceTree = "<group>"; };
+		C46C5D23229CD18A000FEED7 /* Form.MeasureFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.MeasureFunc.swift; sourceTree = "<group>"; };
+		C46C5D25229CD2BD000FEED7 /* Form.Internal.Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Internal.Node.swift; sourceTree = "<group>"; };
+		C46C5D28229CD469000FEED7 /* Form.Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Weak.swift; sourceTree = "<group>"; };
+		C46C5D2A229CD655000FEED7 /* Form.Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Node.swift; sourceTree = "<group>"; };
+		C46C5D2C229CE376000FEED7 /* Form.Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Box.swift; sourceTree = "<group>"; };
+		C46C5D2E229CED5C000FEED7 /* Form.Magma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Magma.swift; sourceTree = "<group>"; };
+		C46C5D30229CED7B000FEED7 /* Form.Semigroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Semigroup.swift; sourceTree = "<group>"; };
+		C46C5D32229CED8B000FEED7 /* Form.Monoid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Monoid.swift; sourceTree = "<group>"; };
+		C46C5D34229CEDCD000FEED7 /* Form.Magma.Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Magma.Operator.swift; sourceTree = "<group>"; };
+		C46C5D36229D06F6000FEED7 /* Form.Compute.Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Compute.Result.swift; sourceTree = "<group>"; };
+		C46C5D38229D084A000FEED7 /* Form.Flex.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Flex.Item.swift; sourceTree = "<group>"; };
+		C46C5D3A229D0935000FEED7 /* Form.Flex.Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Flex.Line.swift; sourceTree = "<group>"; };
+		C46C5D3C229D0965000FEED7 /* Form.Compute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.Compute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +140,129 @@
 		C46C5CC72297A613000FEED7 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				C46C5D1E229CCF5D000FEED7 /* Algorithm */,
+				C46C5D1F229CCF73000FEED7 /* Node */,
+				C46C5D16229CCE1A000FEED7 /* Result */,
+				C46C5D19229CCEDB000FEED7 /* Layout */,
+				C46C5CF9229CC536000FEED7 /* Style */,
+				C46C5CF2229CC1B1000FEED7 /* Geometry */,
+				C46C5CF1229CC19E000FEED7 /* Number */,
+				C46C5D20229CD120000FEED7 /* Algebriac */,
+				C46C5D27229CD45F000FEED7 /* Weak */,
 				C46C5CC82297A613000FEED7 /* Form.h */,
 				C46C5CC92297A613000FEED7 /* Info.plist */,
+				C46C5CD22297A8F2000FEED7 /* Form.Config.swift */,
+				C46C5CD02297A72E000FEED7 /* Form.Enums.swift */,
+				C46C5CDD2297AE5B000FEED7 /* Form.Position.swift */,
+				C46C5CE12297B2C4000FEED7 /* Form.Margin.swift */,
+				C46C5CD72297AB4E000FEED7 /* Form.Unit.swift */,
+				C46C5CD92297ABA8000FEED7 /* Form.Justify.swift */,
+				C46C5CDF2297B1AF000FEED7 /* Form.Float+Extensions.swift */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		C46C5CF1229CC19E000FEED7 /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				C46C5CE5229CB736000FEED7 /* Form.Number.swift */,
+				C46C5CE7229CBC29000FEED7 /* Form.OrElse.swift */,
+				C46C5CE9229CBC44000FEED7 /* Form.Numbered.swift */,
+				C46C5CEB229CBC54000FEED7 /* Form.WithDefaultValue.swift */,
+				C46C5CED229CBC6F000FEED7 /* Form.MinMax.swift */,
+				C46C5CEF229CBF91000FEED7 /* Form.Operation.swift */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
+		C46C5CF2229CC1B1000FEED7 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				C46C5CF3229CC1C8000FEED7 /* Form.Rect.swift */,
+				C46C5CF5229CC2BB000FEED7 /* Form.Size.swift */,
+				C46C5CF7229CC3C4000FEED7 /* Form.Point.swift */,
+			);
+			path = Geometry;
+			sourceTree = "<group>";
+		};
+		C46C5CF9229CC536000FEED7 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				C46C5CFA229CC548000FEED7 /* Form.AlignItems.swift */,
+				C46C5CFC229CC589000FEED7 /* Form.AlignSelf.swift */,
+				C46C5CFE229CC5B7000FEED7 /* Form.AlignContent.swift */,
+				C46C5D00229CC5DF000FEED7 /* Form.Direction.swift */,
+				C46C5D02229CC62A000FEED7 /* Form.Display.swift */,
+				C46C5D04229CC666000FEED7 /* Form.FlexDirection.swift */,
+				C46C5D06229CC6D5000FEED7 /* Form.JustifyContent.swift */,
+				C46C5D08229CC708000FEED7 /* Form.Overflow.swift */,
+				C46C5D0A229CC728000FEED7 /* Form.PositionType.swift */,
+				C46C5D0C229CC74F000FEED7 /* Form.FlexWrap.swift */,
+				C46C5D0E229CC794000FEED7 /* Form.Dimension.swift */,
+				C46C5D10229CC919000FEED7 /* Form.Dimension+Rect.swift */,
+				C46C5D12229CCA26000FEED7 /* Form.Dimension+Size.swift */,
+				C46C5D14229CCA8D000FEED7 /* Form.Style.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		C46C5D16229CCE1A000FEED7 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				C46C5D17229CCE29000FEED7 /* Form.Result.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		C46C5D19229CCEDB000FEED7 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C46C5D1A229CCEE2000FEED7 /* Form.Layout.swift */,
+				C46C5D1C229CCF32000FEED7 /* Form.Cache.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		C46C5D1E229CCF5D000FEED7 /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				C46C5D36229D06F6000FEED7 /* Form.Compute.Result.swift */,
+				C46C5D38229D084A000FEED7 /* Form.Flex.Item.swift */,
+				C46C5D3A229D0935000FEED7 /* Form.Flex.Line.swift */,
+				C46C5D3C229D0965000FEED7 /* Form.Compute.swift */,
+			);
+			path = Algorithm;
+			sourceTree = "<group>";
+		};
+		C46C5D1F229CCF73000FEED7 /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				C46C5D23229CD18A000FEED7 /* Form.MeasureFunc.swift */,
+				C46C5D25229CD2BD000FEED7 /* Form.Internal.Node.swift */,
+				C46C5D2A229CD655000FEED7 /* Form.Node.swift */,
+			);
+			path = Node;
+			sourceTree = "<group>";
+		};
+		C46C5D20229CD120000FEED7 /* Algebriac */ = {
+			isa = PBXGroup;
+			children = (
+				C46C5D21229CD12E000FEED7 /* Form.Function.swift */,
+				C46C5D2E229CED5C000FEED7 /* Form.Magma.swift */,
+				C46C5D30229CED7B000FEED7 /* Form.Semigroup.swift */,
+				C46C5D32229CED8B000FEED7 /* Form.Monoid.swift */,
+				C46C5D34229CEDCD000FEED7 /* Form.Magma.Operator.swift */,
+			);
+			path = Algebriac;
+			sourceTree = "<group>";
+		};
+		C46C5D27229CD45F000FEED7 /* Weak */ = {
+			isa = PBXGroup;
+			children = (
+				C46C5D28229CD469000FEED7 /* Form.Weak.swift */,
+				C46C5D2C229CE376000FEED7 /* Form.Box.swift */,
+			);
+			path = Weak;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +308,7 @@
 				TargetAttributes = {
 					C46C5CC42297A613000FEED7 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -130,6 +344,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C46C5D22229CD12E000FEED7 /* Form.Function.swift in Sources */,
+				C46C5D01229CC5DF000FEED7 /* Form.Direction.swift in Sources */,
+				C46C5D1B229CCEE2000FEED7 /* Form.Layout.swift in Sources */,
+				C46C5CDA2297ABA8000FEED7 /* Form.Justify.swift in Sources */,
+				C46C5D33229CED8B000FEED7 /* Form.Monoid.swift in Sources */,
+				C46C5D11229CC919000FEED7 /* Form.Dimension+Rect.swift in Sources */,
+				C46C5D3D229D0965000FEED7 /* Form.Compute.swift in Sources */,
+				C46C5CD82297AB4E000FEED7 /* Form.Unit.swift in Sources */,
+				C46C5CE02297B1AF000FEED7 /* Form.Float+Extensions.swift in Sources */,
+				C46C5D15229CCA8D000FEED7 /* Form.Style.swift in Sources */,
+				C46C5CFB229CC548000FEED7 /* Form.AlignItems.swift in Sources */,
+				C46C5CD32297A8F2000FEED7 /* Form.Config.swift in Sources */,
+				C46C5D24229CD18A000FEED7 /* Form.MeasureFunc.swift in Sources */,
+				C46C5CF0229CBF91000FEED7 /* Form.Operation.swift in Sources */,
+				C46C5D2B229CD655000FEED7 /* Form.Node.swift in Sources */,
+				C46C5D13229CCA26000FEED7 /* Form.Dimension+Size.swift in Sources */,
+				C46C5CFD229CC589000FEED7 /* Form.AlignSelf.swift in Sources */,
+				C46C5D3B229D0935000FEED7 /* Form.Flex.Line.swift in Sources */,
+				C46C5D29229CD469000FEED7 /* Form.Weak.swift in Sources */,
+				C46C5D37229D06F6000FEED7 /* Form.Compute.Result.swift in Sources */,
+				C46C5CEE229CBC6F000FEED7 /* Form.MinMax.swift in Sources */,
+				C46C5CE22297B2C4000FEED7 /* Form.Margin.swift in Sources */,
+				C46C5D18229CCE29000FEED7 /* Form.Result.swift in Sources */,
+				C46C5D03229CC62A000FEED7 /* Form.Display.swift in Sources */,
+				C46C5D31229CED7B000FEED7 /* Form.Semigroup.swift in Sources */,
+				C46C5CD12297A72E000FEED7 /* Form.Enums.swift in Sources */,
+				C46C5CFF229CC5B7000FEED7 /* Form.AlignContent.swift in Sources */,
+				C46C5D07229CC6D5000FEED7 /* Form.JustifyContent.swift in Sources */,
+				C46C5CF6229CC2BB000FEED7 /* Form.Size.swift in Sources */,
+				C46C5D2F229CED5C000FEED7 /* Form.Magma.swift in Sources */,
+				C46C5CE6229CB736000FEED7 /* Form.Number.swift in Sources */,
+				C46C5D0F229CC794000FEED7 /* Form.Dimension.swift in Sources */,
+				C46C5D0D229CC74F000FEED7 /* Form.FlexWrap.swift in Sources */,
+				C46C5CEC229CBC54000FEED7 /* Form.WithDefaultValue.swift in Sources */,
+				C46C5CF4229CC1C8000FEED7 /* Form.Rect.swift in Sources */,
+				C46C5CE8229CBC29000FEED7 /* Form.OrElse.swift in Sources */,
+				C46C5D39229D084A000FEED7 /* Form.Flex.Item.swift in Sources */,
+				C46C5D0B229CC728000FEED7 /* Form.PositionType.swift in Sources */,
+				C46C5CDE2297AE5B000FEED7 /* Form.Position.swift in Sources */,
+				C46C5D09229CC708000FEED7 /* Form.Overflow.swift in Sources */,
+				C46C5D35229CEDCD000FEED7 /* Form.Magma.Operator.swift in Sources */,
+				C46C5D1D229CCF32000FEED7 /* Form.Cache.swift in Sources */,
+				C46C5D05229CC666000FEED7 /* Form.FlexDirection.swift in Sources */,
+				C46C5CF8229CC3C4000FEED7 /* Form.Point.swift in Sources */,
+				C46C5D2D229CE376000FEED7 /* Form.Box.swift in Sources */,
+				C46C5D26229CD2BD000FEED7 /* Form.Internal.Node.swift in Sources */,
+				C46C5CEA229CBC44000FEED7 /* Form.Numbered.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +522,7 @@
 		C46C5CCE2297A613000FEED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -278,6 +540,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.flow.Form;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +549,7 @@
 		C46C5CCF2297A613000FEED7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
