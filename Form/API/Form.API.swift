@@ -13,6 +13,4 @@ public protocol NodeLayout {
                      measureFunction: MeasureFunc) -> Self
     static func node(style: Style<Dimension>,
                      children: Self...) -> Self
-    static func node(style: Style<Dimension>,
-                     children: [Self]) -> Self
 }
