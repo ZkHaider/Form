@@ -125,18 +125,88 @@ extension Operation where Left == Number, Right == Number, Output == Number {
     }
 }
 
+extension Operation where Left == Number, Right == Number, Output == Float32 {
+    public static var add: Operation<Left, Right, Output> {
+        return Operation<L, R, O>(operate: { (lhs, rhs) -> Float32 in
+            switch lhs {
+            case .defined(let lhsValue):
+                switch rhs {
+                case .defined(let rhsValue): return lhsValue + rhsValue
+                case .undefined:
+                    switch lhs {
+                    case .defined(let lhsValue): return lhsValue
+                    case .undefined: return .nan
+                    }
+                }
+            case .undefined: return .nan
+            }
+        })
+    }
+    
+    public static var subtract: Operation<Left, Right, Output> {
+        return Operation<L, R, O>(operate: { (lhs, rhs) -> Float32 in
+            switch lhs {
+            case .defined(let lhsValue):
+                switch rhs {
+                case .defined(let rhsValue): return lhsValue - rhsValue
+                case .undefined:
+                    switch lhs {
+                    case .defined(let lhsValue): return lhsValue
+                    case .undefined: return .nan
+                    }
+                }
+            case .undefined: return .nan
+            }
+        })
+    }
+    
+    public static var multiply: Operation<Left, Right, Output> {
+        return Operation<L, R, O>(operate: { (lhs, rhs) -> Float32 in
+            switch lhs {
+            case .defined(let lhsValue):
+                switch rhs {
+                case .defined(let rhsValue): return lhsValue * rhsValue
+                case .undefined:
+                    switch lhs {
+                    case .defined(let lhsValue): return lhsValue
+                    case .undefined: return .nan
+                    }
+                }
+            case .undefined: return .nan
+            }
+        })
+    }
+    
+    public static var divide: Operation<Left, Right, Output> {
+        return Operation<L, R, O>(operate: { (lhs, rhs) -> Float32 in
+            switch lhs {
+            case .defined(let lhsValue):
+                switch rhs {
+                case .defined(let rhsValue): return lhsValue / rhsValue
+                case .undefined:
+                    switch lhs {
+                    case .defined(let lhsValue): return lhsValue
+                    case .undefined: return .nan
+                    }
+                }
+            case .undefined: return .nan
+            }
+        })
+    }
+}
+
 extension Operation where Left == InternalNode, Right == Size<Number>, Output == Number {
     static var resolvedMinWidth: Operation {
-        return Operation { $0.style.minSize.width.resolve(withParentWidth: $1.width) }
+        return Operation { $0.style.minSize.width.resolve(withValue: $1.width) }
     }
     static var resolvedMinHeight: Operation {
-        return Operation { $0.style.minSize.height.resolve(withParentWidth: $1.height) }
+        return Operation { $0.style.minSize.height.resolve(withValue: $1.height) }
     }
     static var resolvedMaxWidth: Operation {
-        return Operation { $0.style.maxSize.width.resolve(withParentWidth: $1.width) }
+        return Operation { $0.style.maxSize.width.resolve(withValue: $1.width) }
     }
     static var resolvedMaxHeight: Operation {
-        return Operation { $0.style.maxSize.height.resolve(withParentWidth: $1.height) }
+        return Operation { $0.style.maxSize.height.resolve(withValue: $1.height) }
     }
 }
 

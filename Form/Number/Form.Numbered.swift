@@ -19,3 +19,18 @@ extension Numbered where A == Float32 {
         }
     }
 }
+
+public struct Floating<A> {
+    public let convert: (A) -> Float32
+}
+
+extension Floating where A == Number {
+    public static var `default`: Floating<A> {
+        return Floating<A> { number in
+            switch number {
+            case .defined(let value): return value
+            case .undefined: return .nan
+            }
+        }
+    }
+}

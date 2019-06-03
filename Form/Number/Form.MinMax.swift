@@ -95,7 +95,7 @@ extension MinMax where A == Number, In == Float32, Out == Number {
     }
 }
 
-extension MinMax where A== Float32, In == Number, Out == Float32 {
+extension MinMax where A == Float32, In == Number, Out == Float32 {
     public static var minMax: MinMax<A, In, Out> {
         return MinMax<A, In, Out>(
             maybeMin: { (float, number) -> Float32 in
@@ -113,3 +113,4 @@ extension MinMax where A== Float32, In == Number, Out == Float32 {
         )
     }
 }
+

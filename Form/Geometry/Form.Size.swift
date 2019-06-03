@@ -10,8 +10,8 @@ import Foundation
 import simd
 
 public struct Size<T> {
-    public let width: T
-    public let height: T
+    public var width: T
+    public var height: T
     public init(width: T,
                 height: T) {
         self.width = width
@@ -25,6 +25,38 @@ extension Size {
             width: f(self.width),
             height: f(self.height)
         )
+    }
+}
+
+extension Size {
+    public mutating func setMain(for direction: FlexDirection,
+                                 with value: T) {
+        switch direction {
+        case .row, .rowReverse: self.width = value
+        case .column, .columnReverse: self.height = value
+        }
+    }
+    
+    public mutating func setCross(for direction: FlexDirection,
+                                  with value: T) {
+        switch direction {
+        case .row, .rowReverse: self.height = value
+        case .column, .columnReverse: self.width = value
+        }
+    }
+    
+    public func main(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.width
+        case .column, .columnReverse: return self.height
+        }
+    }
+    
+    public func cross(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.height
+        case .column, .columnReverse: return self.width
+        }
     }
 }
 

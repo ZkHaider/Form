@@ -9,11 +9,66 @@
 import Foundation
 
 public struct Rect<T> {
-    public let start: T
-    public let end: T
-    public let top: T
-    public let bottom: T
+    public var start: T
+    public var end: T
+    public var top: T
+    public var bottom: T
 }
+
+extension Rect where T == Number {
+    
+    public func horizontal() -> T {
+        return Operation.add.operate(self.start, self.end)
+    }
+    
+    public func vertical() -> T {
+        return Operation.add.operate(self.top, self.bottom)
+    }
+    
+    public func main(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.start + self.end
+        case .column, .columnReverse: return self.top + self.bottom
+        }
+    }
+    
+    public func mainStart(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.start
+        case .column, .columnReverse: return self.top
+        }
+    }
+    
+    public func mainEnd(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.end
+        case .column, .columnReverse: return self.bottom
+        }
+    }
+    
+    public func cross(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.top + self.bottom
+        case .column, .columnReverse: return self.start + self.end
+        }
+    }
+    
+    public func crossStart(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.top
+        case .column, .columnReverse: return self.start
+        }
+    }
+    
+    public func crossEnd(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.bottom
+        case .column, .columnReverse: return self.end
+        }
+    }
+    
+}
+
 
 extension Rect where T == Float32 {
     
@@ -23,6 +78,48 @@ extension Rect where T == Float32 {
     
     public func vertical() -> T {
         return Operation.add.operate(self.top, self.bottom)
+    }
+    
+    public func main(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.start + self.end
+        case .column, .columnReverse: return self.top + self.bottom
+        }
+    }
+    
+    public func mainStart(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.start
+        case .column, .columnReverse: return self.top
+        }
+    }
+    
+    public func mainEnd(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.end
+        case .column, .columnReverse: return self.bottom
+        }
+    }
+    
+    public func cross(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.top + self.bottom
+        case .column, .columnReverse: return self.start + self.end
+        }
+    }
+    
+    public func crossStart(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.top
+        case .column, .columnReverse: return self.start
+        }
+    }
+    
+    public func crossEnd(for direction: FlexDirection) -> T {
+        switch direction {
+        case .row, .rowReverse: return self.bottom
+        case .column, .columnReverse: return self.end
+        }
     }
     
 }

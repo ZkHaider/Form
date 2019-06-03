@@ -9,7 +9,7 @@
 import Foundation
 
 struct FlexLine {
-    let items: [FlexItem]
-    let crossSize: Float32
-    let offsetCross: Float32
+    var items: [FlexItem]
+    var crossSize: Float32
+    var offsetCross: Float32
 }

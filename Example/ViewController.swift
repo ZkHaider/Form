@@ -17,11 +17,11 @@ class ViewController: UIViewController {
         
         let parentLayout: Node = .node(
             style: .defaultValue,
-            children: [
+            children:
                 .node(style: .defaultValue,
                       children: .node(style: .defaultValue, children: [])),
                 .node(style: .defaultValue, children: [])
-            ])
+            )
         
         let compute = parentLayout.computeLayout(for: Size<Number>(width: .undefined, height: .undefined))
         

@@ -17,28 +17,31 @@ struct FlexItem {
     let maxSize: Size<Number>
     
     let position: Rect<Number>
-    let margin: Rect<Float32>
-    let padding: Rect<Float32>
-    let border: Rect<Float32>
+    var margin: Rect<Float32>
+    var padding: Rect<Float32>
+    var border: Rect<Float32>
     
-    let innerFlexBases: Float32
+    var innerFlexBasis: Float32
     var flexBasis: Float32 {
-        return innerFlexBases
+        get { return innerFlexBasis }
+        set(newValue) {
+            self.innerFlexBasis = newValue
+        }
     }
     
-    let violation: Float32
-    let frozen: Bool
+    var violation: Float32
+    var frozen: Bool
     
-    let hypotheticalInnerSize: Size<Float32>
-    let hypotheticalOuterSize: Size<Float32>
-    let targetSize: Size<Float32>
-    let outerTargetSize: Size<Float32>
+    var hypotheticalInnerSize: Size<Float32>
+    var hypotheticalOuterSize: Size<Float32>
+    var targetSize: Size<Float32>
+    var outerTargetSize: Size<Float32>
     
-    let baseline: Float32
+    var baseline: Float32
     
     // temporary values for holding offset in the main / cross direction.
     // offset is the relative position from the item's natural flow position based on
     // relative position values, alignment, and justification. Does not include margin/padding/border.
-    let offsetMain: Float32
-    let offsetCross: Float32
+    var offsetMain: Float32
+    var offsetCross: Float32
 }
