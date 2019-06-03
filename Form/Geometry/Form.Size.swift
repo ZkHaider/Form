@@ -75,6 +75,18 @@ extension Size: Monoid, Semigroup, Magma where T: Monoid {
     
 }
 
+extension Size where T == Number {
+    public static var zero: Size<T> {
+        return Size<T>(width: .undefined, height: .undefined)
+    }
+}
+
+extension Size where T == Dimension {
+    public static var zero: Size<T> {
+        return Size<T>(width: .undefined, height: .undefined)
+    }
+}
+
 extension Size where T == Void {
     public func undefined() -> Size<Number> {
         return Size<Number>(width: .undefined, height: .undefined)

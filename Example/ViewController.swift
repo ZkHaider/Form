@@ -23,7 +23,7 @@ class ViewController: UIViewController {
                 .node(style: .defaultValue, children: [])
             )
         
-        let compute = parentLayout.computeLayout(for: Size<Number>(width: .undefined, height: .undefined))
+        let compute = parentLayout.computeLayout(for: .zero)
         
     }
 

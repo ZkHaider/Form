@@ -213,4 +213,10 @@ extension Node: NodeLayout {
                             children: Node...) -> Node {
         return Node(style: style, children: children)
     }
+    
+    public static func node(style: Style<Dimension>,
+                            children: [Node]) -> Node {
+        return Node(style: style, children: children)
+    }
+    
 }
