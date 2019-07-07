@@ -195,6 +195,7 @@
 				C46C5CC92297A613000FEED7 /* Info.plist */,
 				C46C5CC82297A613000FEED7 /* Form.h */,
 				C46C5D57229D2D5B000FEED7 /* API */,
+				C46C5D20229CD120000FEED7 /* Algebriac */,
 				C46C5D1E229CCF5D000FEED7 /* Algorithm */,
 				C46C5D1F229CCF73000FEED7 /* Node */,
 				C46C5D16229CCE1A000FEED7 /* Result */,
@@ -203,7 +204,6 @@
 				C46C5CF2229CC1B1000FEED7 /* Geometry */,
 				C46C5CF1229CC19E000FEED7 /* Number */,
 				C434F3FE22A3709800ADC2CF /* Operators */,
-				C46C5D20229CD120000FEED7 /* Algebriac */,
 				C434F3F922A35C6800ADC2CF /* Utilities */,
 				C46C5D27229CD45F000FEED7 /* Weak */,
 				C46C5D3E229D27F3000FEED7 /* Extensions */,
@@ -682,6 +682,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Form/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -710,6 +711,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Form/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

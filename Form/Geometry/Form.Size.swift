@@ -123,3 +123,24 @@ extension Size: Equatable where T: Equatable {
         return true
     }
 }
+
+extension Size: Codable where T: Codable {
+    
+    private enum RootKeys: String, CodingKey {
+        case width
+        case height
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: RootKeys.self)
+        self.width = try container.decode(T.self, forKey: .width)
+        self.height = try container.decode(T.self, forKey: .height)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: RootKeys.self)
+        try container.encode(self.width, forKey: .width)
+        try container.encode(self.height, forKey: .height)
+    }
+    
+}

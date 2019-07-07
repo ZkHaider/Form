@@ -27,6 +27,13 @@ extension Number {
         case .undefined: return true
         }
     }
+    
+    public var resolve: Float32 {
+        switch self {
+        case .defined(let value): return value
+        case .undefined: return .nan
+        }
+    }
 }
 
 extension Number: WithDefaultValue {
@@ -74,15 +81,25 @@ extension Number: Monoid {
     
 }
 
-extension Number: ExpressibleByFloatLiteral {
+extension Number: Codable {
     
-    public typealias FloatLiteralType = Float
-    
-    public init(floatLiteral value: FloatLiteralType) {
-        if value.isNaN || value.isInfinite {
-            self = .undefined
-        } else {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let value = try? container.decode(Float.self),
+            value != .nan {
             self = .defined(value)
+        } else {
+            self = .undefined
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .defined(let value):
+            try container.encode(value)
+        case .undefined:
+            try container.encode(Float.nan)
         }
     }
     

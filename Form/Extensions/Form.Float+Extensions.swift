@@ -10,13 +10,13 @@ import Foundation
 import CoreGraphics
 
 extension Float {
-    var cgFloat: CGFloat {
+    public var cgFloat: CGFloat {
         return CGFloat(self)
     }
 }
 
 extension CGFloat {
-    var float: Float {
+    public var float: Float {
         return Float(self)
     }
 }

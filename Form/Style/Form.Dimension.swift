@@ -68,3 +68,33 @@ extension Dimension: Equatable {
         }
     }
 }
+
+extension Dimension: Codable {
+    
+    private enum RawValues: String, Codable {
+        case auto
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let stringValue = try? container.decode(String.self) {
+            if let rawValue = RawValues(rawValue: stringValue) {
+                switch rawValue {
+                case .auto: self = .auto
+                }
+            } else {
+                
+                // Try to parse out percentage
+            }
+        } else if let numberValue = try? container.decode(Number.self) {
+            self = .points(numberValue.resolve)
+        } else {
+            self = .undefined
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+    }
+    
+}

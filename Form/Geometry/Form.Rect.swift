@@ -171,3 +171,30 @@ extension Rect: Equatable where T: Equatable {
         return true
     }
 }
+
+extension Rect: Codable where T: Codable {
+    
+    private enum RootKeys: String, CodingKey {
+        case start
+        case end
+        case top
+        case bottom
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: RootKeys.self)
+        self.start = try container.decode(T.self, forKey: .start)
+        self.end = try container.decode(T.self, forKey: .end)
+        self.top = try container.decode(T.self, forKey: .top)
+        self.bottom = try container.decode(T.self, forKey: .bottom)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: RootKeys.self)
+        try container.encode(self.start, forKey: .start)
+        try container.encode(self.end, forKey: .end)
+        try container.encode(self.top, forKey: .top)
+        try container.encode(self.bottom, forKey: .bottom)
+    }
+    
+}
