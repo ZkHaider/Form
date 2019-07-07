@@ -72,7 +72,7 @@ extension Dimension: Equatable {
 
 extension Dimension: Codable {
     
-    private enum RawValues: String, Codable {
+    public enum RawValues: String, Codable {
         case auto
     }
     
