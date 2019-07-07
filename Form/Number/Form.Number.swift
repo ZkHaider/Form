@@ -73,3 +73,27 @@ extension Number: Monoid {
     }
     
 }
+
+extension Number: Codable {
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let value = try? container.decode(Float.self),
+            value != .nan {
+            self = .defined(value)
+        } else {
+            self = .undefined
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .defined(let value):
+            try container.encode(value)
+        case .undefined:
+            try container.encode(Float.nan)
+        }
+    }
+    
+}

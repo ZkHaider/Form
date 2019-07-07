@@ -49,3 +49,24 @@ extension Point: Equatable where T: Equatable {
         return true 
     }
 }
+
+extension Point: Codable where T: Codable {
+    
+    private enum RootKeys: String, CodingKey {
+        case x
+        case y
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: RootKeys.self)
+        self.x = try container.decode(T.self, forKey: .x)
+        self.y = try container.decode(T.self, forKey: .y)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: RootKeys.self)
+        try container.encode(self.x, forKey: .x)
+        try container.encode(self.y, forKey: .y)
+    }
+    
+}
