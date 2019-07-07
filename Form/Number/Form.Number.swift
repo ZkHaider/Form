@@ -27,6 +27,13 @@ extension Number {
         case .undefined: return true
         }
     }
+    
+    public var resolve: Float32 {
+        switch self {
+        case .defined(let value): return value
+        case .undefined: return .nan
+        }
+    }
 }
 
 extension Number: WithDefaultValue {
