@@ -73,17 +73,3 @@ extension Number: Monoid {
     }
     
 }
-
-extension Number: ExpressibleByFloatLiteral {
-    
-    public typealias FloatLiteralType = Float
-    
-    public init(floatLiteral value: FloatLiteralType) {
-        if value.isNaN || value.isInfinite {
-            self = .undefined
-        } else {
-            self = .defined(value)
-        }
-    }
-    
-}
