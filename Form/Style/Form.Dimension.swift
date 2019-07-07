@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ParsingKit
 import simd
 
 public enum Dimension {
@@ -78,14 +79,20 @@ extension Dimension: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if let stringValue = try? container.decode(String.self) {
+            
+            // Try seeing if we have a string auto type
             if let rawValue = RawValues(rawValue: stringValue) {
                 switch rawValue {
                 case .auto: self = .auto
                 }
-            } else {
                 
-                // Try to parse out percentage
+            // Try parsing percentage
+            } else if let percentage = Parser.percentage.run(stringValue).match {
+                self = .percent(percentage)
+            } else {
+                self = .undefined
             }
+            
         } else if let numberValue = try? container.decode(Number.self) {
             self = .points(numberValue.resolve)
         } else {
@@ -95,6 +102,15 @@ extension Dimension: Codable {
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
+        switch self {
+        case .auto:
+            try container.encode(RawValues.auto)
+        case .percent(let percent):
+            try container.encode(percent)
+        case .points(let points):
+            try container.encode(points)
+        case .undefined: break 
+        }
     }
     
 }

@@ -71,6 +71,20 @@
 			remoteGlobalIDString = C46C5CC42297A613000FEED7;
 			remoteInfo = Form;
 		};
+		C4A40CBF22D1E3C7003AABAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4A40CBB22D1E3C7003AABAD /* ParsingKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4A40C8D22D1DD5C003AABAD;
+			remoteInfo = ParsingKit;
+		};
+		C4A40CC122D1E3CF003AABAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4A40CBB22D1E3C7003AABAD /* ParsingKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C4A40C8C22D1DD5C003AABAD;
+			remoteInfo = ParsingKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +146,7 @@
 		C46C5D4F229D2B01000FEED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C46C5D51229D2B01000FEED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C46C5D58229D2D69000FEED7 /* Form.API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.API.swift; sourceTree = "<group>"; };
+		C4A40CBB22D1E3C7003AABAD /* ParsingKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ParsingKit.xcodeproj; path = Carthage/Checkouts/ParsingKit/ParsingKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +189,7 @@
 		C46C5CBB2297A613000FEED7 = {
 			isa = PBXGroup;
 			children = (
+				C4A40CBA22D1E3AE003AABAD /* Dependencies */,
 				C46C5D44229D2AFF000FEED7 /* Example */,
 				C46C5CC72297A613000FEED7 /* Form */,
 				C46C5CC62297A613000FEED7 /* Products */,
@@ -344,6 +360,22 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		C4A40CBA22D1E3AE003AABAD /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				C4A40CBB22D1E3C7003AABAD /* ParsingKit.xcodeproj */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		C4A40CBC22D1E3C7003AABAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4A40CC022D1E3C7003AABAD /* ParsingKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -370,6 +402,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C4A40CC222D1E3CF003AABAD /* PBXTargetDependency */,
 			);
 			name = Form;
 			productName = Form;
@@ -424,6 +457,12 @@
 			mainGroup = C46C5CBB2297A613000FEED7;
 			productRefGroup = C46C5CC62297A613000FEED7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C4A40CBC22D1E3C7003AABAD /* Products */;
+					ProjectRef = C4A40CBB22D1E3C7003AABAD /* ParsingKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C46C5D42229D2AFF000FEED7 /* Example */,
@@ -431,6 +470,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C4A40CC022D1E3C7003AABAD /* ParsingKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ParsingKit.framework;
+			remoteRef = C4A40CBF22D1E3C7003AABAD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C46C5CC32297A613000FEED7 /* Resources */ = {
@@ -524,6 +573,11 @@
 			isa = PBXTargetDependency;
 			target = C46C5CC42297A613000FEED7 /* Form */;
 			targetProxy = C46C5D55229D2B1C000FEED7 /* PBXContainerItemProxy */;
+		};
+		C4A40CC222D1E3CF003AABAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ParsingKit;
+			targetProxy = C4A40CC122D1E3CF003AABAD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
