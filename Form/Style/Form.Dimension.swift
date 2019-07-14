@@ -107,7 +107,7 @@ extension Dimension: Monoid, Magma {
 
 extension Dimension: Codable {
     
-    private enum RawValues: String, Codable {
+    public enum RawValues: String, Codable {
         case auto
     }
     
