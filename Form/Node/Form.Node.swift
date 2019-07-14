@@ -35,7 +35,6 @@ public struct Node {
     var children: [Node] {
         get {
             return self.backingNode.children
-                .compactMap({ $0.value })
                 .compactMap({ Node($0) })
         }
         set(newValue) {
@@ -81,14 +80,14 @@ public struct Node {
         let internalNode = InternalNode(
             style: style,
             parents: [],
-            children: children.compactMap({ Weak<InternalNode>(value: $0.backingNode) }),
+            children: children.compactMap({ $0.backingNode }),
             measureFunction: nil,
             layoutCache: nil,
             isDirty: true
         )
         
         for child in internalNode.children {
-            child.value?.parents.append(Weak<InternalNode>(value: internalNode))
+            child.parents.append(Weak<InternalNode>(value: internalNode))
         }
         
         self.boxedNode = Box(value: internalNode)
@@ -98,14 +97,14 @@ public struct Node {
     
     public func addChild(_ child: Node) {
         child.backingNode.parents.append(Weak(value: self.backingNode))
-        self.backingNode.children.append(Weak(value: child.backingNode))
+        self.backingNode.children.append(child.backingNode)
         self.markDirty()
     }
     
     // Can cause crash - intended.
     public func removeChild(_ child: Node) -> Node {
         guard
-            let index = self.backingNode.children.firstIndex(where: { $0.value == child.backingNode })
+            let index = self.backingNode.children.firstIndex(where: { $0 == child.backingNode })
             else {
                 fatalError("Could not find child.")
         }
@@ -117,13 +116,13 @@ public struct Node {
         let child = self.backingNode.children.remove(at: index)
         
         guard
-            let index = child.value?.parents.firstIndex(where: { $0.value == self.backingNode })
+            let index = child.parents.firstIndex(where: { $0.value == self.backingNode })
             else {
                 fatalError("Parent index does not exist.")
         }
-        child.value?.parents.remove(at: index)
+        child.parents.remove(at: index)
         self.markDirty()
-        return Node(child.value!)
+        return Node(child)
     }
     
     // Can cause crash - intended.
@@ -132,16 +131,28 @@ public struct Node {
         child.backingNode.parents.append(Weak(value: self.backingNode))
         let oldChild = self.backingNode.children.remove(at: index)
         
-        if let parentIndex = oldChild.value?.parents.firstIndex(where: { $0.value == self.backingNode }) {
-            oldChild.value?.parents.remove(at: parentIndex)
+        if let parentIndex = oldChild.parents.firstIndex(where: { $0.value == self.backingNode }) {
+            oldChild.parents.remove(at: parentIndex)
         }
         
         self.markDirty()
-        return Node(oldChild.value!)
+        return Node(oldChild)
     }
     
     public func computeLayout(for size: Size<Number>) -> Result<Layout> {
         return compute(on: self.backingNode, size: size)
+    }
+    
+    public func computeLayout() -> Result<Layout> {
+        let resolve: (Dimension) -> Number = { dimension in
+            switch dimension {
+            case .auto: return .undefined
+            case .percent(let percent): return .defined(percent)
+            case .points(let points): return .defined(points)
+            case .undefined: return .undefined
+            }
+        }
+        return compute(on: self.backingNode, size: self.style.size.map(resolve))
     }
     
     // MARK: - Private Methods
@@ -153,15 +164,15 @@ public struct Node {
     
     private func setChildren(_ children: [Node]) {
         for child in self.backingNode.children {
-            if let parentIndex = child.value?.parents.firstIndex(where: { $0.value == self.backingNode }) {
-                child.value?.parents.remove(at: parentIndex)
+            if let parentIndex = child.parents.firstIndex(where: { $0.value == self.backingNode }) {
+                child.parents.remove(at: parentIndex)
             }
         }
         
         self.backingNode.children = []
         for child in children {
             child.backingNode.parents.append(Weak(value: self.backingNode))
-            self.backingNode.children.append(Weak(value: child.backingNode))
+            self.backingNode.children.append(child.backingNode)
         }
         
         self.markDirty()
@@ -204,19 +215,19 @@ extension Node: Equatable {
 
 extension Node: NodeLayout {
     
-    public static func node(style: Style<Dimension>,
+    public static func node(_ layout: FlexBoxBuilder,
                             measureFunction: MeasureFunc) -> Node {
-        return Node(style: style, measureFunction: measureFunction)
+        return Node(style: layout.style, measureFunction: measureFunction)
     }
     
-    public static func node(style: Style<Dimension>,
+    public static func node(_ layout: FlexBoxBuilder,
                             children: Node...) -> Node {
-        return Node(style: style, children: children)
+        return Node(style: layout.style, children: children)
     }
     
-    public static func node(style: Style<Dimension>,
+    public static func node(_ layout: FlexBoxBuilder,
                             children: [Node]) -> Node {
-        return Node(style: style, children: children)
+        return Node(style: layout.style, children: children)
     }
     
 }

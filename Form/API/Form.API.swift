@@ -9,10 +9,10 @@
 import Foundation
 
 public protocol NodeLayout {
-    static func node(style: Style<Dimension>,
+    static func node(_ layout: FlexBoxBuilder,
                      measureFunction: MeasureFunc) -> Self
-    static func node(style: Style<Dimension>,
+    static func node(_ layout: FlexBoxBuilder,
                      children: Self...) -> Self
-    static func node(style: Style<Dimension>,
+    static func node(_ layout: FlexBoxBuilder,
                      children: [Self]) -> Self
 }

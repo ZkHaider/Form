@@ -61,6 +61,9 @@
 		C46C5D4D229D2B01000FEED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C46C5D4C229D2B01000FEED7 /* Assets.xcassets */; };
 		C46C5D50229D2B01000FEED7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46C5D4E229D2B01000FEED7 /* LaunchScreen.storyboard */; };
 		C46C5D59229D2D69000FEED7 /* Form.API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46C5D58229D2D69000FEED7 /* Form.API.swift */; };
+		C4C8AB7922DAF4FE005626AA /* FormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C8AB7822DAF4FE005626AA /* FormTests.swift */; };
+		C4C8AB7B22DAF4FE005626AA /* Form.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C46C5CC52297A613000FEED7 /* Form.framework */; };
+		C4C8AB8222DAFF72005626AA /* Form.FlexBox.Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C8AB8122DAFF72005626AA /* Form.FlexBox.Builder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +87,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C4A40C8C22D1DD5C003AABAD;
 			remoteInfo = ParsingKit;
+		};
+		C4C8AB7C22DAF4FE005626AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C46C5CBC2297A613000FEED7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C46C5CC42297A613000FEED7;
+			remoteInfo = Form;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -147,6 +157,10 @@
 		C46C5D51229D2B01000FEED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C46C5D58229D2D69000FEED7 /* Form.API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.API.swift; sourceTree = "<group>"; };
 		C4A40CBB22D1E3C7003AABAD /* ParsingKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ParsingKit.xcodeproj; path = Carthage/Checkouts/ParsingKit/ParsingKit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		C4C8AB7622DAF4FE005626AA /* FormTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4C8AB7822DAF4FE005626AA /* FormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTests.swift; sourceTree = "<group>"; };
+		C4C8AB7A22DAF4FE005626AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4C8AB8122DAFF72005626AA /* Form.FlexBox.Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form.FlexBox.Builder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +175,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4C8AB7322DAF4FE005626AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4C8AB7B22DAF4FE005626AA /* Form.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +214,7 @@
 				C4A40CBA22D1E3AE003AABAD /* Dependencies */,
 				C46C5D44229D2AFF000FEED7 /* Example */,
 				C46C5CC72297A613000FEED7 /* Form */,
+				C4C8AB7722DAF4FE005626AA /* FormTests */,
 				C46C5CC62297A613000FEED7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -201,6 +224,7 @@
 			children = (
 				C46C5CC52297A613000FEED7 /* Form.framework */,
 				C46C5D43229D2AFF000FEED7 /* Example.app */,
+				C4C8AB7622DAF4FE005626AA /* FormTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -356,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				C46C5D58229D2D69000FEED7 /* Form.API.swift */,
+				C4C8AB8122DAFF72005626AA /* Form.FlexBox.Builder.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -374,6 +399,15 @@
 				C4A40CC022D1E3C7003AABAD /* ParsingKit.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C4C8AB7722DAF4FE005626AA /* FormTests */ = {
+			isa = PBXGroup;
+			children = (
+				C4C8AB7822DAF4FE005626AA /* FormTests.swift */,
+				C4C8AB7A22DAF4FE005626AA /* Info.plist */,
+			);
+			path = FormTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,13 +461,31 @@
 			productReference = C46C5D43229D2AFF000FEED7 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C4C8AB7522DAF4FE005626AA /* FormTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4C8AB8022DAF4FE005626AA /* Build configuration list for PBXNativeTarget "FormTests" */;
+			buildPhases = (
+				C4C8AB7222DAF4FE005626AA /* Sources */,
+				C4C8AB7322DAF4FE005626AA /* Frameworks */,
+				C4C8AB7422DAF4FE005626AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4C8AB7D22DAF4FE005626AA /* PBXTargetDependency */,
+			);
+			name = FormTests;
+			productName = FormTests;
+			productReference = C4C8AB7622DAF4FE005626AA /* FormTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C46C5CBC2297A613000FEED7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = flow;
 				TargetAttributes = {
@@ -443,6 +495,9 @@
 					};
 					C46C5D42229D2AFF000FEED7 = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					C4C8AB7522DAF4FE005626AA = {
+						CreatedOnToolsVersion = 11.0;
 					};
 				};
 			};
@@ -467,6 +522,7 @@
 			targets = (
 				C46C5D42229D2AFF000FEED7 /* Example */,
 				C46C5CC42297A613000FEED7 /* Form */,
+				C4C8AB7522DAF4FE005626AA /* FormTests */,
 			);
 		};
 /* End PBXProject section */
@@ -496,6 +552,13 @@
 				C46C5D50229D2B01000FEED7 /* LaunchScreen.storyboard in Resources */,
 				C46C5D4D229D2B01000FEED7 /* Assets.xcassets in Resources */,
 				C46C5D4B229D2AFF000FEED7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4C8AB7422DAF4FE005626AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +611,7 @@
 				C46C5D35229CEDCD000FEED7 /* Form.Magma.Operator.swift in Sources */,
 				C46C5D59229D2D69000FEED7 /* Form.API.swift in Sources */,
 				C46C5D1D229CCF32000FEED7 /* Form.Cache.swift in Sources */,
+				C4C8AB8222DAFF72005626AA /* Form.FlexBox.Builder.swift in Sources */,
 				C46C5D05229CC666000FEED7 /* Form.FlexDirection.swift in Sources */,
 				C46C5CF8229CC3C4000FEED7 /* Form.Point.swift in Sources */,
 				C434F40422A46BF800ADC2CF /* Form.Sequence+Extensions.swift in Sources */,
@@ -566,6 +630,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4C8AB7222DAF4FE005626AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4C8AB7922DAF4FE005626AA /* FormTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -578,6 +650,11 @@
 			isa = PBXTargetDependency;
 			name = ParsingKit;
 			targetProxy = C4A40CC122D1E3CF003AABAD /* PBXContainerItemProxy */;
+		};
+		C4C8AB7D22DAF4FE005626AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C46C5CC42297A613000FEED7 /* Form */;
+			targetProxy = C4C8AB7C22DAF4FE005626AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -818,6 +895,44 @@
 			};
 			name = Release;
 		};
+		C4C8AB7E22DAF4FE005626AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EVL2DEPTTR;
+				INFOPLIST_FILE = FormTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zkhaider.FormTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4C8AB7F22DAF4FE005626AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EVL2DEPTTR;
+				INFOPLIST_FILE = FormTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zkhaider.FormTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -844,6 +959,15 @@
 			buildConfigurations = (
 				C46C5D53229D2B01000FEED7 /* Debug */,
 				C46C5D54229D2B01000FEED7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4C8AB8022DAF4FE005626AA /* Build configuration list for PBXNativeTarget "FormTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4C8AB7E22DAF4FE005626AA /* Debug */,
+				C4C8AB7F22DAF4FE005626AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

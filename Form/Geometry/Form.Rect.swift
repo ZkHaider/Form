@@ -15,6 +15,17 @@ public struct Rect<T> {
     public var bottom: T
 }
 
+extension Rect where T == Dimension {
+    
+    public static let zero: Rect<Dimension> = {
+        return Rect<Dimension>(start: .points(0.0),
+                               end: .points(0.0),
+                               top: .points(0.0),
+                               bottom: .points(0.0))
+    }()
+    
+}
+
 extension Rect where T == Number {
     
     public func horizontal() -> T {

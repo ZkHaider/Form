@@ -70,6 +70,41 @@ extension Dimension: Equatable {
     }
 }
 
+extension Dimension: Monoid, Magma {
+    
+    public static var identity: Dimension {
+        return .undefined
+    }
+    
+    public func ops(other: Dimension) -> Dimension {
+        switch self {
+        case .auto:
+            switch other {
+            case .auto: return .auto
+            case .undefined: return .undefined
+            case .percent: return .auto
+            case .points: return .auto
+            }
+        case .undefined: return .undefined
+        case .percent(let percent):
+            switch other {
+            case .percent(let otherPercent): return .percent(min(1.0, percent + otherPercent))
+            case .points(let points): return .percent(points * percent)
+            case .auto: return .auto
+            case .undefined: return .undefined
+            }
+        case .points(let points):
+            switch other {
+            case .percent(let percent): return .points(percent * points)
+            case .points(let otherPoints): return .points(points + otherPoints)
+            case .undefined: return .undefined
+            case .auto: return .auto
+            }
+        }
+    }
+    
+}
+
 extension Dimension: Codable {
     
     private enum RawValues: String, Codable {

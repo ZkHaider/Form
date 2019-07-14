@@ -200,7 +200,6 @@ internal func computeInternal(on node: InternalNode,
     
     var flexItems: [FlexItem] = node.children
         .nodeIterator
-        .compactMap({ $0.value })
         .filter({ $0.style.positionType != .absolute })
         .filter({ $0.style.display != .none })
         .compactMap({ child -> FlexItem? in
@@ -491,7 +490,7 @@ internal func computeInternal(on node: InternalNode,
             //    as the remaining free space.
             
             let usedSpace: Float32 = (frozen + unfrozen).reduce(into: 0.0, { (result, item) in
-                let increment = (item.margin.main(for: direction)) + (item.frozen ? item.targetSize.main(for: direction) : 0.0)
+                let increment = (item.margin.main(for: direction)) + (item.frozen ? item.targetSize.main(for: direction) : item.flexBasis)
                 result += increment
             })
             
@@ -504,7 +503,7 @@ internal func computeInternal(on node: InternalNode,
             } else if shrinking && sumFlexShrink < 1.0 {
                 freeSpace = ((initialFreeSpace * sumFlexShrink) ▽ (innerNodeSize.main(for: direction) - usedSpace))
             } else {
-                freeSpace = innerNodeSize.main(for: direction) || 0.0
+                freeSpace = (innerNodeSize.main(for: direction) - usedSpace) || 0.0
             }
             
             // c. Distribute free space proportional to the flex factors.
@@ -593,9 +592,43 @@ internal func computeInternal(on node: InternalNode,
             
             unfrozen.mutateEach({ item in
                 switch totalViolation {
-                case let value where value > 0.0: item.frozen = item.violation > 0.0
-                case let value where value < 0.0: item.frozen = item.violation < 0.0
-                default: item.frozen = true
+                case let value where value > 0.0:
+                    item.frozen = item.violation > 0.0
+                    
+                    // Update item in lines
+                    guard
+                        let index = line.items.firstIndex(where: { $0.node == item.node })
+                        else {
+                        // Not found then break
+                        break
+                    }
+                    line.items[index] = item
+                    
+                case let value where value < 0.0:
+                    
+                    item.frozen = item.violation < 0.0
+                    
+                    // Update item in lines
+                    guard
+                        let index = line.items.firstIndex(where: { $0.node == item.node })
+                        else {
+                            // Not found then break
+                            break
+                    }
+                    line.items[index] = item
+                    
+                default:
+                    
+                    item.frozen = true
+                    
+                    // Update item in lines
+                    guard
+                        let index = line.items.firstIndex(where: { $0.node == item.node })
+                        else {
+                            // Not found then break
+                            break
+                    }
+                    line.items[index] = item 
                 }
             })
             
@@ -693,7 +726,7 @@ internal func computeInternal(on node: InternalNode,
                 case .success(let computeResult):
                     
                     let layout = Layout(
-                        order: UInt32(node.children.firstIndex(where: { $0.value == child.node })!),
+                        order: UInt32(node.children.firstIndex(where: { $0 == child.node })!),
                         size: computeResult.size,
                         location: Point(x: 0.0, y: 0.0),
                         children: computeResult.children
@@ -1092,7 +1125,7 @@ internal func computeInternal(on node: InternalNode,
                         + (crossStart - crossEnd)
                     
                     let layout = Layout(
-                        order: UInt32(node.children.firstIndex(where: { $0.value == child.node })!),
+                        order: UInt32(node.children.firstIndex(where: { $0 == child.node })!),
                         size: computeResult.size,
                         location: Point(
                             x: isRow ? offsetMain : offsetCross,
@@ -1150,11 +1183,11 @@ internal func computeInternal(on node: InternalNode,
     let absoluteChildren = WrappedSequence(wrapping: node.children,
                                            iterator: { iterator in iterator.next() })
         .enumerated()
-        .filter({ $0.1.value?.style.positionType == .absolute })
+        .filter({ $0.1.style.positionType == .absolute })
         .compactMap({ entry -> Layout? in
             
             let order = entry.offset
-            guard let child = entry.element.value else { return nil }
+            let child = entry.element
             
             let containerWidth = Numbered.default.convert(containerSize.width)
             let containerHeight = Numbered.default.convert(containerSize.height)
@@ -1277,18 +1310,16 @@ internal func computeInternal(on node: InternalNode,
                       size: Size<Float32>(width: 0.0, height: 0.0),
                       location: Point<Float32>(x: 0.0, y: 0.0),
                       children: node.children.enumerated().compactMap({
-                            guard let value = $1.value else { return nil }
-                            return hiddenLayout(on: value, order: UInt32($0))
+                            return hiddenLayout(on: $1, order: UInt32($0))
                       }))
     }
     
     let hiddenChildren: [Layout] = node
         .children
         .enumerated()
-        .filter({ $1.value?.style.display == .none })
+        .filter({ $1.style.display == .none })
         .compactMap({
-            guard let value = $1.value else { return nil }
-            return hiddenLayout(on: value, order: UInt32($0))
+            return hiddenLayout(on: $1, order: UInt32($0))
         })
     
     children.append(contentsOf: hiddenChildren)

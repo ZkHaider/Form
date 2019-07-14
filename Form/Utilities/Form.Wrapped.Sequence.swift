@@ -27,6 +27,14 @@ struct WrappedSequence<Wrapped: Sequence, Element>: Sequence {
 }
 
 extension Sequence where Element == Weak<InternalNode> {
+    var weakNodeIterator: WrappedSequence<Self, Element> {
+        return WrappedSequence(wrapping: self) { iterator in
+            return iterator.next()
+        }
+    }
+}
+
+extension Sequence where Element == InternalNode {
     var nodeIterator: WrappedSequence<Self, Element> {
         return WrappedSequence(wrapping: self) { iterator in
             return iterator.next()

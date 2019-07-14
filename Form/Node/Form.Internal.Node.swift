@@ -12,14 +12,14 @@ public class InternalNode {
     
     var style: Style<Dimension>
     var parents: [Weak<InternalNode>]
-    var children: [Weak<InternalNode>]
+    var children: [InternalNode]
     var measureFunction: MeasureFunc? = nil
     var layoutCache: Cache? = nil
     var isDirty: Bool
     
     init(style: Style<Dimension>,
                 parents: [Weak<InternalNode>],
-                children: [Weak<InternalNode>],
+                children: [InternalNode],
                 measureFunction: MeasureFunc? = nil,
                 layoutCache: Cache? = nil,
                 isDirty: Bool) {

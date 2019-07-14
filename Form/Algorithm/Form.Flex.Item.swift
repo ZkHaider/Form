@@ -45,3 +45,63 @@ struct FlexItem {
     var offsetMain: Float32
     var offsetCross: Float32
 }
+
+extension FlexItem: Equatable {
+    
+    public static func ==(lhs: FlexItem,
+                          rhs: FlexItem) -> Bool {
+        if lhs.node != rhs.node {
+            return false
+        }
+        if lhs.size != rhs.size {
+            return false
+        }
+        if lhs.minSize != rhs.minSize {
+            return false
+        }
+        if lhs.maxSize != rhs.maxSize {
+            return false
+        }
+        if lhs.position != rhs.position {
+            return false
+        }
+        if lhs.margin != rhs.margin {
+            return false
+        }
+        if lhs.padding != rhs.padding {
+            return false
+        }
+        if lhs.border != rhs.border {
+            return false
+        }
+        if lhs.innerFlexBasis != rhs.innerFlexBasis {
+            return false
+        }
+        if lhs.violation != rhs.violation {
+            return false 
+        }
+        if lhs.hypotheticalInnerSize != rhs.hypotheticalInnerSize {
+            return false
+        }
+        if lhs.hypotheticalOuterSize != rhs.hypotheticalOuterSize {
+            return false 
+        }
+        if lhs.targetSize != rhs.targetSize {
+            return false
+        }
+        if lhs.outerTargetSize != rhs.outerTargetSize {
+            return false
+        }
+        if lhs.baseline != rhs.baseline {
+            return false
+        }
+        if lhs.offsetMain != rhs.offsetMain {
+            return false
+        }
+        if lhs.offsetCross != rhs.offsetCross {
+            return false
+        }
+        return true 
+    }
+    
+}
