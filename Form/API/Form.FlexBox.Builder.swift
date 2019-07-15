@@ -35,7 +35,10 @@ public protocol FlexBoxComponents {
                        size: Size<Dimension>,
                        minSize: Size<Dimension>,
                        maxSize: Size<Dimension>,
-                       aspectRatio: Number) -> Self
+                       aspectRatio: Float,
+                       margin: Rect<Dimension>,
+                       padding: Rect<Dimension>,
+                       border: Rect<Dimension>) -> Self
 }
 
 public struct FlexBoxBuilder {
@@ -95,7 +98,10 @@ extension FlexBoxBuilder: FlexBoxComponents {
                               size: Size<Dimension>,
                               minSize: Size<Dimension> = .zero,
                               maxSize: Size<Dimension> = .zero,
-                              aspectRatio: Number = .defined(1.0)) -> FlexBoxBuilder {
+                              aspectRatio: Float = 1.0,
+                              margin: Rect<Dimension> = .zero,
+                              padding: Rect<Dimension> = .zero,
+                              border: Rect<Dimension> = .zero) -> FlexBoxBuilder {
         return FlexBoxBuilder(style: Style(display: .defaultValue,
                                            positionType: .defaultValue,
                                            direction: .defaultValue,
@@ -107,16 +113,16 @@ extension FlexBoxBuilder: FlexBoxComponents {
                                            alignContent: .defaultValue,
                                            justifyContent: .defaultValue,
                                            position: position,
-                                           margin: .identity,
-                                           padding: .identity,
-                                           border: .identity,
+                                           margin: margin,
+                                           padding: padding,
+                                           border: border,
                                            flexGrow: 0.0,
                                            flexShrink: 1.0,
                                            flexBasis: .auto,
                                            size: size,
-                                           minSize: minSize,
-                                           maxSize: maxSize,
-                                           aspectRatio: aspectRatio))
+                                           minSize: minSize == .zero ? size : minSize,
+                                           maxSize: maxSize == .zero ? size : maxSize,
+                                           aspectRatio: .defined(aspectRatio)))
     }
     
 }

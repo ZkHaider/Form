@@ -221,7 +221,7 @@ extension Node: NodeLayout {
     }
     
     public static func node(_ layout: FlexBoxBuilder,
-                            children: Node...) -> Node {
+                            _ children: Node...) -> Node {
         return Node(style: layout.style, children: children)
     }
     

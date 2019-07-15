@@ -16,12 +16,14 @@ class FormTests: XCTestCase {
             .layout(
                 size: Size(width: .points(500.0),
                            height: .points(500.0))),
-            children: .node(
+            .node(
                 .layout(
-                    position: Rect(start: .percent(0.02),
-                                   end: .percent(0.52),
-                                   top: .percent(0.02),
-                                   bottom: .percent(0.52)),
+                    position: Rect(
+                        start: .percent(0.02),
+                        end: .percent(0.52),
+                        top: .percent(0.02),
+                        bottom: .percent(0.52)
+                    ),
                     size: Size(
                         width: .percent(0.5),
                         height: .percent(0.5)
@@ -29,6 +31,59 @@ class FormTests: XCTestCase {
                     aspectRatio: .defined(0.5)
                 )
             )
+        )
+    }()
+    
+    lazy var innerNode1: Node = {
+        return .node(
+                .layout(
+                    position: Rect(start: .percent(0.1),
+                                   end: .percent(0.9),
+                                   top: .percent(0.9),
+                                   bottom: .percent(0.9)),
+                    size: Size(width: .percent(0.9),
+                               height: .percent(0.9))
+                )
+            )
+    }()
+    
+    lazy var innerNode2: Node = {
+        return .node(
+            .layout(
+                position: Rect(start: .percent(0.1),
+                               end: .percent(0.9),
+                               top: .percent(0.1),
+                               bottom: .percent(0.9)),
+                size: Size(width: .percent(0.9),
+                           height: .percent(0.9)),
+                margin: Rect(start: .percent(0.1),
+                             end: .percent(0.1),
+                             top: .percent(0.1),
+                             bottom: .percent(0.1))
+            ),
+            self.innerInnerNode1
+        )
+    }()
+    
+    lazy var innerInnerNode1: Node = {
+        return .node(
+            .layout(size: Size(width: .percent(0.8),
+                               height: .percent(0.8)))
+        )
+    }()
+    
+    lazy var nestedNode: Node = {
+        return .node(
+            .layout(
+                size: Size(width: .points(375.0),
+                           height: .points(812.0)),
+                padding: Rect(start: .percent(0.1),
+                              end: .percent(0.1),
+                              top: .percent(0.1),
+                              bottom: .percent(0.1))
+            ),
+            self.innerNode1,
+            self.innerNode2
         )
     }()
 
@@ -50,9 +105,15 @@ class FormTests: XCTestCase {
             layout.location.y == 0.0 &&
             layout.children[0].size.width == 250.0 &&
             layout.children[0].size.height == 250.0 &&
-            layout.children[0].location.x == 0.0 &&
-            layout.children[0].location.y == 0.0
+            layout.children[0].location.x == 10.0 &&
+            layout.children[0].location.y == 10.0
         )
+    }
+    
+    func testNestedLayout() {
+        let result = self.nestedNode.computeLayout()
+        let layout = try! result.get()
+        print(layout)
     }
 
     func testExample() {

@@ -194,8 +194,8 @@ internal func computeInternal(on node: InternalNode,
     //    in that dimension and use that value. This might result in an infinite value.
     
     let availableSize = Size(
-        width:  (nodeSize.width || parentSize.width - margin.horizontal()) - paddingBorder.horizontal(),
-        height: (nodeSize.height || parentSize.height - margin.vertical()) - paddingBorder.vertical()
+        width:  (nodeSize.width || parentSize.width) - margin.horizontal() - paddingBorder.horizontal(),
+        height: (nodeSize.height || parentSize.height) - margin.vertical() - paddingBorder.vertical()
     )
     
     var flexItems: [FlexItem] = node.children
@@ -333,7 +333,7 @@ internal func computeInternal(on node: InternalNode,
         // min-content max-content constraints from the top
         let result = computeInternal(on: item.node,
                                      nodeSize: Size(width: .undefined,
-                                       height: .undefined),
+                                                    height: .undefined),
                                      parentSize: availableSize,
                                      performLayout: false)
         switch result {
@@ -1113,7 +1113,7 @@ internal func computeInternal(on node: InternalNode,
                     let offsetMain = totalOffsetMain
                         + child.offsetMain
                         + child.margin.mainStart(for: direction)
-                        + (mainStart - mainEnd)
+                        + mainStart
                     
                     let crossStart = child.position.crossStart(for: direction) || 0.0
                     let crossEnd = child.position.crossEnd(for: direction) || 0.0
@@ -1122,7 +1122,7 @@ internal func computeInternal(on node: InternalNode,
                         + child.offsetCross
                         + line.offsetCross
                         + child.margin.crossStart(for: direction)
-                        + (crossStart - crossEnd)
+                        + crossStart
                     
                     let layout = Layout(
                         order: UInt32(node.children.firstIndex(where: { $0 == child.node })!),

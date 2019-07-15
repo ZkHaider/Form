@@ -12,7 +12,7 @@ public protocol NodeLayout {
     static func node(_ layout: FlexBoxBuilder,
                      measureFunction: MeasureFunc) -> Self
     static func node(_ layout: FlexBoxBuilder,
-                     children: Self...) -> Self
+                     _ children: Self...) -> Self
     static func node(_ layout: FlexBoxBuilder,
                      children: [Self]) -> Self
 }
